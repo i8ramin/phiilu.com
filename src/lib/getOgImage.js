@@ -14,7 +14,7 @@ async function getOgImage(path, baseUrl = 'https://og-image.phiilu.com') {
   const hash = createHash('md5').update(url).digest('hex');
   const ogImageDir = `./public/images/og`;
   const imagePath = `${ogImageDir}/${hash}.png`;
-  const publicPath = `${process.env.BASE_URL}/images/og/${hash}.png`;
+  const publicPath = `/images/og/${hash}.png`;
 
   const browser = await chrome.puppeteer.launch({
     args: chrome.args,

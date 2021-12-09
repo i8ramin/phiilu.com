@@ -15,7 +15,7 @@ import { listVariants, itemVariants, delayedSlideInUp } from '@helpers/animation
 export async function getStaticProps() {
   const posts = [];
   const ogImage = await getOgImage(`/phiilu.com/`);
-  const baseUrl = process.env.BASE_URL;
+  const baseUrl = '';
 
   return {
     props: { posts, ogImage, baseUrl }

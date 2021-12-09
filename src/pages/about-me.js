@@ -66,11 +66,9 @@ function getBirthdayInSecond() {
 
 export async function getStaticProps() {
   const title = 'About Me';
-  const posts = []
-  const ogImage = await getOgImage(
-    `/phiilu.com/post?title=${title}&url=${process.env.BASE_URL}/about-me`
-  );
-  const baseUrl = process.env.BASE_URL;
+  const posts = [];
+  const ogImage = await getOgImage(`/phiilu.com/post?title=${title}&url=/about-me`);
+  const baseUrl = '';
 
   return {
     props: { postsCount: posts.length, ogImage, baseUrl, initialAge: getBirthdayInSecond() }
