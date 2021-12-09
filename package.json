@@ -13,7 +13,6 @@
   "dependencies": {
     "@wordpress/wordcount": "^3.2.0",
     "classnames": "^2.3.1",
-    "contentful": "^8.4.2",
     "cssnano": "^5.0.7",
     "date-fns": "^2.22.1",
     "eslint-config-next": "^11.0.1",

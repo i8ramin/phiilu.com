@@ -9,38 +9,18 @@ import SectionHeading from '@components/SectionHeading/SectionHeading';
 import Image from 'next/image';
 import { motion } from 'framer-motion';
 
-import contentful from '@lib/contentful';
 import getOgImage from '@lib/getOgImage';
-import generateRssFeed from '@lib/rss';
-import generateSitemap from '@lib/sitemap';
-import { POST_LIST_ITEM_FIELDS } from '@helpers/transformPost';
 import { listVariants, itemVariants, delayedSlideInUp } from '@helpers/animation';
 
 export async function getStaticProps() {
-  const posts = await contentful.getEntries(
-    'post',
-    { order: '-fields.publishedDate', limit: 5 },
-    POST_LIST_ITEM_FIELDS
-  );
+  const posts = [];
   const ogImage = await getOgImage(`/phiilu.com/`);
   const baseUrl = process.env.BASE_URL;
-
-  await generateRssFeed();
-  await generateSitemap();
 
   return {
     props: { posts, ogImage, baseUrl }
   };
 }
-
-// const heroVariants = {
-//   initial: {
-//     opacity: 0,
-//     scale: 0.8
-//   },
-//   enter: { opacity: 1, scale: 1, transition: { duration: 0.3 } },
-//   exit: { opacity: 0, scale: 0.5, transition: { duration: 0.5 } }
-// };
 
 const heroVariants = {
   initial: {

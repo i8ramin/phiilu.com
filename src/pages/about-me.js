@@ -7,7 +7,6 @@ import Newsletter from '@components/Newsletter/Newsletter';
 import Image from 'next/image';
 import { LazyMotion, domAnimation, m } from 'framer-motion';
 
-import contentful from '@lib/contentful';
 import getOgImage from '@lib/getOgImage';
 import { slideInRight, slideInLeft, slideInUp } from '@helpers/animation';
 
@@ -67,7 +66,7 @@ function getBirthdayInSecond() {
 
 export async function getStaticProps() {
   const title = 'About Me';
-  const posts = await contentful.getEntries('post', { order: '-fields.publishedDate' }, ['id']);
+  const posts = []
   const ogImage = await getOgImage(
     `/phiilu.com/post?title=${title}&url=${process.env.BASE_URL}/about-me`
   );
